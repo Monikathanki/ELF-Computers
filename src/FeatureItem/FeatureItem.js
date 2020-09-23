@@ -1,11 +1,18 @@
 import React from "react";
-import OptionItem from '../OptionItem/OptionItem';
+import OptionItem from "../OptionItem/OptionItem";
 
+import slugify from "slugify";
 
-function FeatureItem({ feature, onUpdateFeature, options, selected }) {
-  let optionItems = options.map((item) => {
-    let itemHash = slugify(JSON.stringify(item));
-    let checked = item.name === selected[feature].name;
+export default function FeatureItem({
+  feature,
+  onUpdateFeature,
+  options,
+  selected,
+}) {
+  const optionItems = options.map((item) => {
+    const itemHash = slugify(JSON.stringify(item));
+    const checked = item.name === selected[feature].name;
+
     return (
       <OptionItem
         key={itemHash}
@@ -20,9 +27,10 @@ function FeatureItem({ feature, onUpdateFeature, options, selected }) {
 
   return (
     <fieldset className="feature">
-      <legend className="feature_name">
+      <legend className="feature__name">
         <h3>{feature}</h3>
       </legend>
+      {optionItems}
     </fieldset>
   );
 }
@@ -33,5 +41,3 @@ FeatureItem.defaultProps = {
   options: [],
   selected: {},
 };
-
-export default FeatureItem;

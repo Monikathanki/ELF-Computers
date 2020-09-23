@@ -1,5 +1,5 @@
-import React from 'react';
-import FeatureItem from '../FeatureItem/FeatureItem';
+import React from "react";
+import FeatureItem from "../FeatureItem/FeatureItem";
 
 function FeaturesForm({ features, onUpdateFeature, selected }) {
   const featureItems = Object.keys(features).map((feature, idx) => {
